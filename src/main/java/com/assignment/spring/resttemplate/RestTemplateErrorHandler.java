@@ -12,6 +12,10 @@ import java.io.IOException;
 import static org.springframework.http.HttpStatus.Series.CLIENT_ERROR;
 import static org.springframework.http.HttpStatus.Series.SERVER_ERROR;
 
+/**
+ * RestTemplateErrorHandler is used in the WeatherController
+ * and added as errorhandler to the RestTemplate
+ */
 public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
     @Override

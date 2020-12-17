@@ -3,7 +3,7 @@ package com.assignment.spring.controller;
 import com.assignment.spring.api.WeatherResponse;
 import com.assignment.spring.config.AppConfig;
 import com.assignment.spring.exception.CityNoContentException;
-import com.assignment.spring.exception.NotAvailableException;
+import com.assignment.spring.exception.ServerNotAvailableException;
 import com.assignment.spring.model.WeatherEntity;
 import com.assignment.spring.repository.WeatherRepository;
 import com.assignment.spring.resttemplate.RestTemplateErrorHandler;
@@ -34,9 +34,10 @@ public class WeatherController {
     private WeatherRepository weatherRepository;
 
     /**
+     * Request get mapping for the application at the /weather url
+     *
      * @param city City as input for the API to receive specific weather response
      * @return Object if succesfull then return the saved WeatherEntity record. Else a ResponseEntity Exception
-     * @name getWeatherByCity
      **/
     @RequestMapping("/weather")
     public Object getWeatherByCity(@RequestParam String city) {
@@ -54,9 +55,9 @@ public class WeatherController {
     }
 
     /**
+     * Gets the API response from the OpenWeather API
      * @param city
      * @return ResponseEntity<WeatherResponse> from the API
-     * @name GetApiResponse
      * API Request response from OpenWeather API
      */
     public ResponseEntity<WeatherResponse> getApiResponse(String city) {
@@ -69,7 +70,7 @@ public class WeatherController {
             }
             return response;
         } catch (ResourceAccessException e) {
-            throw new NotAvailableException("external service not available");
+            throw new ServerNotAvailableException("external service not available");
         }
     }
 
@@ -78,9 +79,10 @@ public class WeatherController {
     }
 
     /**
+     * Maps the response tot the Entity object
      * @param response
      * @return WeatherEntity
-     * @name ResponseToEntityMapper instantiates and fills the WeatherEntity Object
+     *
      */
     public WeatherEntity ResponseToEntityMapper(WeatherResponse response) {
         return new WeatherEntity(response);
