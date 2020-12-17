@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:54320/weather
+    username: postgres
+    password:
+    driverClassName: org.postgresql.Driver
+
+openweather:
+  url: http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appId}
+  appId: <tbd>
+
+logging:
+  level:
+    root: info

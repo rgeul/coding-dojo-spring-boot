@@ -1,4 +1,6 @@
-package com.assignment.spring;
+package com.assignment.spring.model;
+
+import com.assignment.spring.api.WeatherResponse;
 
 import javax.persistence.*;
 
@@ -47,4 +49,14 @@ public class WeatherEntity {
     public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
+
+    public WeatherEntity(WeatherResponse response) {
+        setCity(response.getName());
+        setCountry(response.getSys().getCountry());
+        setTemperature(response.getMain().getTemp());
+    }
+
+    public WeatherEntity() {
+    }
+
 }

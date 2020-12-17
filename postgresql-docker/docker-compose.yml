@@ -1,0 +1,11 @@
+version: "3"
+services:
+  db:
+    image: "postgres:9.4.24"
+    container_name: "spring_dojo_postgres"
+    ports:
+      - "54320:5432"
+    volumes:
+      - spring_dojo_dbdata:/var/lib/postgresql/data
+volumes:
+  spring_dojo_dbdata:
