@@ -1,0 +1,8 @@
+openweather:
+  url: http://localhost:8088/weather?city={city}&APPID={appId}
+  appId: <tbd>
+
+logging:
+  level:
+    root: info
+
