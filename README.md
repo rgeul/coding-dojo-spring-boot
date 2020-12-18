@@ -1,15 +1,13 @@
-Weather rest api application
+Spring Boot Coding Dojo
 ---
 
-Welcome to the Weather rest api application!
+Welcome to the Spring Boot Coding Dojo!
 
 ### Introduction
 
 This is a simple application that requests its data from [OpenWeather](https://openweathermap.org/) and stores the result in a database. 
 
-Weather rest client application
-
-### Dev Installation 
+## Dev Installation 
 
 1) This project uses `postgresql 9` as the database. You can install a docker image with it by running `cd postgresql-docker && docker-compose up -d` and then creating the db: `./create-db.sh`
 3) Since it's a bad practice to save keys in plain text in a public repo, my OpenWeather key was not commited. You can add a valid one in `application-dev.yml` file under `openWeather.appId`. If you wish to run the tests, repeat this procedure for `application.yml` in the `test/` directory. 
